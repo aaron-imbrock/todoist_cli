@@ -6,11 +6,11 @@ from common.env import Data
 if __name__ == "__main__":
     
     api_key = Data.todoist_api_key
-    new_task = sys.stdin
+    tasks = sys.stdin
     
     try:
-        for task in new_task:
-            print(task)
+        for task in tasks:
+            task = task.rstrip()
             requests.post(
                 "https://api.todoist.com/rest/v1/tasks",
                 data=json.dumps({
@@ -24,5 +24,6 @@ if __name__ == "__main__":
                     "X-Request-Id": str(uuid.uuid4()),
                     "Authorization": "Bearer %s" % api_key
                 }).json()
+        print(f'Added to Inbox: {task}')
     except:
         sys.stdout.flush()
