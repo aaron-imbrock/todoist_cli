@@ -21,7 +21,10 @@ python3 -m venv env
 ```
 
 `pip` is automatically installed when you create the env. Use it to install the packages listed in requirements.txt 
+
+```bash
  pip install -r requirements.txt
+```
 
 Rename common/template_env.py to common/env.py 
 
