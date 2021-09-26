@@ -37,8 +37,24 @@ Rename common/template_env.py to common/env.py:
 mv common/template_env.py common/env.py
 ```
 
-Noted in that file is the url to create and then grab your todoist api key. In env.py set the `access_token` variable to include your API key.
+Noted in `env.py` is the [url](https://developer.todoist.com/appconsole.html) for creating your todoist api key. 
+
+In env.py set the `access_token` variable to include your API key.
+
 On the todoist Developer console go to 'Manage App' and create your new app. Scrolling down your 'App Management' page you'll see the Test Token also referred to as 'Your Access Token'. That key gets assigned to access_token in env.py. env.py is skipped in the .gitignore file so that you don't inadvertently expose your todoist api key to the world.
+
+ If your access token was "abcdefABCDEF123456" then:
+
+**`./common/env.py:`**
+```python3
+class Data:
+    """ Store necessary data for using Todoist API """
+    access_token = "abcdefABCDEF123456"
+```
+At this point everything should just work. Let's test it:
+
+
+
 
 ## TODO
 
